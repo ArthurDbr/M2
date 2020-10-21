@@ -27,6 +27,10 @@ CREATE TABLE salle (
     CONSTRAINT salle_pk PRIMARY KEY (id_salle)
 );
 
+CREATE ROLE admin21_spectateur;
+CREATE ROLE admin21_concert;
+CREATE ROLE admin21_salle;
+
 
 INSERT INTO spectateur VALUES ('USER5', 'Boular', 'Pascal', 26, '2 rue du billard');
 INSERT INTO spectateur VALUES ('USER6', 'Bon', 'Jean', 35, '87 avenue de la plage');
@@ -39,3 +43,8 @@ INSERT INTO concert VALUES ('conc4', 'salle2', 'Radio Moscow', 0, '2023/01/01');
 
 INSERT INTO salle VALUES ('salle1', 2000);
 INSERT INTO salle VALUES ('salle2', 500);
+
+Select * from salle;
+
+
+ 
