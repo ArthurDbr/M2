@@ -7,15 +7,6 @@ DROP ROLE admin21_vendeur_tickets;
 DROP ROLE admin21_spectateur;
 DROP ROLE admin21_invite;
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON salle TO admin21_directeur;
-GRANT SELECT, INSERT, UPDATE, DELETE ON concert TO admin21_directeur;
---TODO qcces spectqteur de directeur--
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON spectateur TO admin21_vendeur;
-GRANT SELECT ON salle TO admin21_vendeur;
-GRANT SELECT ON salle TO admin21_vendeur;
-
-
 CREATE TABLE spectateur(
     id_spectateur VARCHAR(64),
     last_name VARCHAR(64),
@@ -45,6 +36,18 @@ CREATE ROLE admin21_vendeur_tickets;
 CREATE ROLE admin21_spectateur;
 CREATE ROLE admin21_invite;
 
+GRANT SELECT, INSERT, UPDATE, DELETE ON salle TO admin21_directeur;
+GRANT SELECT, INSERT, UPDATE, DELETE ON concert TO admin21_directeur;
+--TODO qcces spectqteur de directeur--
+
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON spectateur TO admin21_vendeur_tickets;
+GRANT SELECT ON salle TO admin21_vendeur_tickets;
+GRANT SELECT ON concert TO admin21_vendeur_tickets;
+
+GRANT admin21_directeur TO user1;
+GRANT admin21_vendeur_tickets TO user2;
+
 INSERT INTO spectateur VALUES ('USER5', 'Boular', 'Pascal', 26, '2 rue du billard');
 INSERT INTO spectateur VALUES ('USER6', 'Bon', 'Jean', 35, '87 avenue de la plage');
 INSERT INTO spectateur VALUES ('USER7', 'Pelouse', 'Thierry', 44,'62 rue du plateau');
@@ -69,26 +72,46 @@ CREATE OR REPLACE PACKAGE BODY set_concert_context_package IS
     role_context VARCHAR(64);
     nom_context VARCHAR(64);
   BEGIN
-    nom_context := SYS_CONTEXT('USERENV','SESSION_USER');
+    nom_context:=SYS_CONTEXT('USERENV','SESSION_USER');
     DBMS_SESSION.SET_CONTEXT('concert_context', 'nom', nom_context);
-
     SELECT GRANTED_ROLE INTO role_context
     FROM DBA_ROLE_PRIVS
-    WHERE UPPER(GRANTEE) = nom_context and granted_role like 'ADMIN21%';
+    WHERE UPPER(GRANTEE)=nom_context AND GRANTED_ROLE LIKE '%ADMIN21';
     DBMS_SESSION.SET_CONTEXT('concert_context', 'role', role_context);
   END set_concert;
 END set_concert_context_package;
 /
 
-GRANT EXECUTE ON admin21.set_concert_context_package TO user1, user2, user3, user4, user5, user6, user7
+GRANT EXECUTE ON admin21.set_concert_context_package TO user1, user2, user3, user4, user5, user6, user7;
 
 CREATE OR REPLACE FUNCTION only_confirmed_concert(
-  schema_var in VARCHAR2,
-  table_var in VARCHAR2)
-RETURN VARCHAR2
-IS 
+  schema_var IN VARCHAR2,
+  table_var IN VARCHAR2)
+  RETURN VARCHAR2 
+  IS 
+  return_val VARCHAR2 (300);
+  BEGIN
+    IF SYS_CONTEXT('concert_context', 'role' ) = 'ADMIN21_VENDEUR_TICKETS' THEN
+      return_val := 'confirmed=1';
+    END IF;
+  RETURN return_val;
+  END only_confirmed_concert;
+/
 
-SELECT * FROM concert WHERE confirmed = 1;
+BEGIN
+DBMS_RLS.ADD_POLICY (
+    object_schema => 'admin21',
+    object_name => 'concert',
+    policy_name => 'only_confirmed_concert_policy',
+    function_schema => 'admin21',
+    policy_function => 'only_confirmed_concert',
+    statement_types => 'select'
+);
+END;
+/
+
+
+
 
 
  
