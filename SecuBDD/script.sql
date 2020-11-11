@@ -1,14 +1,4 @@
 
-
-DROP TABLE spectateur;
-DROP TABLE concert;
-DROP TABLE salle;
-
-DROP ROLE admin21_directeur;
-DROP ROLE admin21_vendeur_tickets;
-DROP ROLE admin21_spectateur;
-DROP ROLE admin21_invite;
-
 CREATE TABLE spectateur
 (
     id_spectateur VARCHAR(64),
@@ -64,6 +54,7 @@ INSERT INTO concert VALUES ('conc4', 'salle2', 'Radio Moscow', 0, '2023/01/01');
 
 INSERT INTO salle VALUES ('salle1', 2000);
 INSERT INTO salle VALUES ('salle2', 500);
+
 
 CREATE OR REPLACE CONTEXT concert_context USING set_concert_context_package;
 
