@@ -1,3 +1,4 @@
+@drop
 
 CREATE TABLE spectateur
 (
