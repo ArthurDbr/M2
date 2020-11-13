@@ -8,15 +8,15 @@ CREATE TABLE spectateur
     last_name VARCHAR(64),
     first_name VARCHAR(64),
     age INTEGER,
-    adress VARCHAR(500),
+    adress VARCHAR(96),
     CONSTRAINT spectateur_pk PRIMARY KEY(id_spectateur)
 );
 
 CREATE TABLE concert 
 (
-    id_concert VARCHAR(300),
-    id_salle VARCHAR(300),
-    artist VARCHAR(300),
+    id_concert VARCHAR(32),
+    id_salle VARCHAR(32),
+    artist VARCHAR(96),
     confirmed INTEGER,
     date_concert DATE,
     CONSTRAINT concert_pk PRIMARY KEY (id_concert)
@@ -24,7 +24,7 @@ CREATE TABLE concert
 
 CREATE TABLE salle 
 (
-    id_salle VARCHAR(300),
+    id_salle VARCHAR(96),
     capacity INTEGER,
     CONSTRAINT salle_pk PRIMARY KEY (id_salle)
 );
