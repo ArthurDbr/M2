@@ -8,7 +8,7 @@ SELECT SYS_CONTEXT('concert_context','role') FROM DUAL;
 /** TEST SUR LA TABLE SPECTATEUR **/
 prompt
 prompt Select dans la table spectateur : ne retourne que les id, prenom et nom
-SELECT * FROM admin21.spectateur;
+SELECT * FROM admin21.limited_spectateur;
 
 prompt
 prompt Insert dans la table spectateur : Impossible
