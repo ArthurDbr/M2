@@ -71,6 +71,7 @@ GRANT SELECT ON limited_spectateur TO admin21_directeur;
 
 GRANT admin21_directeur TO user1 WITH ADMIN OPTION;
 GRANT admin21_vendeur_tickets TO user2;
+GRANT admin21_spectateur TO user3;
 
 @context
 
