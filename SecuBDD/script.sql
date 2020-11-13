@@ -68,7 +68,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON concert TO admin21_directeur;
 GRANT SELECT ON limited_spectateur TO admin21_directeur;
 
 
-GRANT admin21_directeur TO user1 WITH ADMIN OPTION;
+GRANT admin21_directeur TO user1;
 GRANT admin21_vendeur_tickets TO user2;
 GRANT admin21_vendeur_tickets TO user3;
 GRANT admin21_spectateur TO user5;

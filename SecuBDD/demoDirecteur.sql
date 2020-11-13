@@ -16,7 +16,7 @@ INSERT INTO admin21.spectateur VALUES ('USER9', 'Joyeux', 'Albet', 65,'3 rue du 
 
 prompt
 prompt Delete dans la table spectateur : Impossible
-DELETE INTO admin21.spectateur WHERE id_spectateur=1;
+DELETE FROM admin21.spectateur WHERE id_spectateur=1;
 
 /** TEST SUR LA TABLE CONCERT **/
 prompt
@@ -25,7 +25,7 @@ SELECT * FROM admin21.concert;
 
 prompt 
 prompt Insert dans la table concert 
-INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, '2021/02/15');
+INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, TO_DATE('2021-02-15', 'YYYY-MM-DD'));
 SELECT * FROM admin21.concert;
 
 prompt
@@ -55,7 +55,7 @@ SELECT * FROM admin21.salle WHERE id_salle = 'salle3';
 
 prompt
 prompt Delete dans la table salle
-DELETE INTO admin21.salle WHERE id_salle='salle3';
+DELETE FROM admin21.salle WHERE id_salle='salle3';
 SELECT * FROM admin21.salle;
 
 COMMIT;
