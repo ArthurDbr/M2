@@ -7,8 +7,8 @@ CREATE OR REPLACE FUNCTION spectateur_self_select(
   IS 
   return_val VARCHAR2 (300);
   BEGIN
-    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_VENDEUR_TICKETS' THEN
-      return_val := 'spectateur_id = SYS_CONTEXT(''concert_context'', ''nom'')';
+    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' THEN
+      return_val := 'id_spectateur = SYS_CONTEXT(''concert_context'', ''nom'')';
     END IF;
   RETURN return_val;
   END spectateur_self_select;
