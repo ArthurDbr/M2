@@ -3,6 +3,9 @@ EXECUTE admin21.set_concert_context_package.set_concert;
 SELECT SYS_CONTEXT('concert_context','nom') FROM DUAL;
 SELECT SYS_CONTEXT('concert_context','role') FROM DUAL;
 
+SET LINE 250;
+SET LINESIZE 250;
+
 
 /** TEST SUR LA TABLE CONCERT **/
 prompt Récupère uniquement les concert confirmé : SELECT * FROM concert;

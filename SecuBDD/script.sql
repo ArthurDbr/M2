@@ -4,11 +4,11 @@
 
 CREATE TABLE spectateur
 (
-    id_spectateur VARCHAR(64),
-    last_name VARCHAR(64),
-    first_name VARCHAR(64),
+    id_spectateur VARCHAR(32),
+    last_name VARCHAR(32),
+    first_name VARCHAR(32),
     age INTEGER,
-    adress VARCHAR(96),
+    adress VARCHAR(64),
     CONSTRAINT spectateur_pk PRIMARY KEY(id_spectateur)
 );
 
@@ -16,7 +16,7 @@ CREATE TABLE concert
 (
     id_concert VARCHAR(32),
     id_salle VARCHAR(32),
-    artist VARCHAR(96),
+    artist VARCHAR(64),
     confirmed INTEGER,
     date_concert DATE,
     CONSTRAINT concert_pk PRIMARY KEY (id_concert)
@@ -24,7 +24,7 @@ CREATE TABLE concert
 
 CREATE TABLE salle 
 (
-    id_salle VARCHAR(96),
+    id_salle VARCHAR(32),
     capacity INTEGER,
     CONSTRAINT salle_pk PRIMARY KEY (id_salle)
 );
@@ -85,6 +85,7 @@ GRANT EXECUTE ON ADMIN21.set_concert_context_package TO user1, user2, user3, use
 
 
 
+COMMIT;
 
 
 
