@@ -60,7 +60,7 @@ GRANT admin21_invite TO admin21_spectateur;
 GRANT SELECT ON spectateur TO admin21_spectateur;
 
 -- GRANT admin21_vendeur_tickets 
-GRANT admin21_spectateur TO admin21_vendeur_tickets
+GRANT admin21_spectateur TO admin21_vendeur_tickets;
 GRANT INSERT, UPDATE, DELETE ON spectateur TO admin21_vendeur_tickets;
 
 -- GRANT admin21_directeur 
