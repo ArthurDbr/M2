@@ -71,12 +71,21 @@ GRANT SELECT ON limited_spectateur TO admin21_directeur;
 
 GRANT admin21_directeur TO user1 WITH ADMIN OPTION;
 GRANT admin21_vendeur_tickets TO user2;
+GRANT admin21_vendeur_tickets TO user3;
+GRANT admin21_spectateur TO user5;
+GRANT admin21_spectateur TO user6;
+GRANT admin21_spectateur TO user7;
+GRANT admin21_invite TO user8;
 
 @context
 
 GRANT EXECUTE ON ADMIN21.set_concert_context_package TO user1, user2, user3, user4, user5, user6, user7;
 
 @only_confirmed_concert_policy
+@spectateur_self_select_policy
+
+
+
 
 
 

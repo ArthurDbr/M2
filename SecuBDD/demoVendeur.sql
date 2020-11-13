@@ -19,7 +19,7 @@ INSERT INTO admin21.salle VALUES ('salle3', 800);
 prompt
 prompt Peut effectuer insere, update, delete et select sur la table spectateur
 
-prompt Insére dans la table spectateur : 
+prompt Insére dans la table spectateur  
 INSERT INTO admin21.spectateur VALUES ('USER8', 'Mousse', 'Jean', 36,'1 rue du chapiteau');
 
 COMMIT;
