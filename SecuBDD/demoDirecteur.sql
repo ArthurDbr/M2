@@ -1,8 +1,10 @@
 -- Arthur DEBAR & Alexis PETIT M2 MIAGE
 
+EXECUTE admin21.set_concert_context_package.set_concert;
 
--- SELECT SYS_CONTEXT('concert_context','nom') FROM DUAL;
--- SELECT SYS_CONTEXT('concert_context','role') FROM DUAL;
+SELECT SYS_CONTEXT('concert_context','nom') FROM DUAL;
+SELECT SYS_CONTEXT('concert_context','role') FROM DUAL;
+
 SET LINE 250;
 SET LINESIZE 250;
 

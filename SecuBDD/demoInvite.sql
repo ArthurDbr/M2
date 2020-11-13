@@ -26,7 +26,7 @@ DELETE FROM admin21.spectateur WHERE id_spectateur=1;
 prompt
 prompt ** TEST SUR LA TABLE CONCERT **
 prompt Select dans la table concert : retourne les concerts confirmé
-SELECT * FROM admin21.limited_spectateur;
+SELECT * FROM admin21.concert;
 
 prompt 
 prompt Insert dans la table concert : Impossible
@@ -41,7 +41,6 @@ SELECT * FROM admin21.concert WHERE id_concert = 'conc5';
 prompt
 prompt Delete dans la table concert : Impossible
 DELETE FROM admin21.concert WHERE id_concert='conc5';
-SELECT * FROM admin21.concert;
 
 /** TEST SUR LA TABLE SALLE **/
 prompt
