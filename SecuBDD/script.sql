@@ -1,7 +1,9 @@
 -- Arthur DEBAR & Alexis PETIT M2 MIAGE
 
+-- Lancement du script drop pour effacer toute les données de la base
 @drop
 
+-- Initialisation des différentes tables
 CREATE TABLE spectateur
 (
     id_spectateur VARCHAR(32),
@@ -29,6 +31,7 @@ CREATE TABLE salle
     CONSTRAINT salle_pk PRIMARY KEY (id_salle)
 );
 
+-- Ajout des données dans nos tables
 INSERT INTO spectateur VALUES ('USER5', 'Boular', 'Pascal', 26, '2 rue du billard');
 INSERT INTO spectateur VALUES ('USER6', 'Bon', 'Jean', 35, '87 avenue de la plage');
 
@@ -40,40 +43,43 @@ INSERT INTO concert VALUES ('conc4', 'salle2', 'Radio Moscow', 0, TO_DATE('2023-
 INSERT INTO salle VALUES ('salle1', 2000);
 INSERT INTO salle VALUES ('salle2', 500);
 
---View limited_spectateur
+-- Création de la VUE limited_spectateur
 CREATE OR REPLACE VIEW limited_spectateur
 AS SELECT id_spectateur, last_name, first_name
 FROM spectateur;
 
+-- Création de nos différents rôles
 CREATE ROLE admin21_directeur;
 CREATE ROLE admin21_vendeur_tickets;
 CREATE ROLE admin21_spectateur;
 CREATE ROLE admin21_invite;
 
--- GRANT admin21_invite 
+-- Ajout des droits sur salle et concert au rôle Invité 
 GRANT SELECT ON salle TO admin21_invite;
 GRANT SELECT ON concert TO admin21_invite;
+-- Auncun droit sur la table spectateur
 
--- GRANT admin21_spectateur 
+-- Ajout des droits au rôle Spectateur héritant du rôle 
 GRANT admin21_invite TO admin21_spectateur;
 GRANT SELECT ON spectateur TO admin21_spectateur;
 
--- GRANT admin21_vendeur_tickets 
+-- Ajout des droits héritant du rôle Spectateur 
 GRANT admin21_spectateur TO admin21_vendeur_tickets;
 GRANT INSERT, UPDATE, DELETE ON spectateur TO admin21_vendeur_tickets;
 
--- GRANT admin21_directeur 
+-- Ajout des droits au rôle Directeur n'héritant d'aucun rôle
 GRANT SELECT, INSERT, UPDATE, DELETE ON salle TO admin21_directeur;
 GRANT SELECT, INSERT, UPDATE, DELETE ON concert TO admin21_directeur;
 GRANT SELECT ON limited_spectateur TO admin21_directeur;
 
-
+--Attribution des rôles aux Users
 GRANT admin21_directeur TO user1;
 GRANT admin21_vendeur_tickets TO user2;
 GRANT admin21_vendeur_tickets TO user3;
 GRANT admin21_spectateur TO user5;
 GRANT admin21_spectateur TO user6;
 GRANT admin21_invite TO user7;
+GRANT admin21_invite TO user4;
 
 @context
 
