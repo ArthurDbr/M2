@@ -20,7 +20,7 @@ INSERT INTO admin21.spectateur VALUES ('USER9', 'Joyeux', 'Albet', 65,'3 rue du 
 
 prompt
 prompt Delete dans la table spectateur : Impossible
-DELETE FROM admin21.spectateur WHERE id_spectateur=1;
+DELETE FROM admin21.spectateur WHERE id_spectateur='USER9';
 
 /** TEST SUR LA TABLE CONCERT **/
 prompt
@@ -29,17 +29,17 @@ prompt Select dans la table concert : retourne tout les concerts
 SELECT * FROM admin21.concert;
 
 prompt 
-prompt Insert dans la table concert 
+prompt Insert dans la table concert : autorisé
 INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, TO_DATE('2021-02-15', 'YYYY-MM-DD'));
 SELECT id_salle, artist, confirmed FROM admin21.concert;
 
 prompt
-prompt Update dans la table concert 
+prompt Update dans la table concert : autorisé
 UPDATE admin21.concert SET confirmed = 1 WHERE id_concert = 'conc5';
 SELECT id_salle, artist, confirmed FROM admin21.concert WHERE id_concert = 'conc5';
 
 prompt
-prompt Delete dans la table concert
+prompt Delete dans la table concert : autorisé
 DELETE FROM admin21.concert WHERE id_concert='conc5';
 SELECT id_concert, artist FROM admin21.concert;
 
@@ -50,17 +50,17 @@ prompt Select dans la table salle : retourne toute les salles
 SELECT * FROM admin21.salle;
 
 prompt 
-prompt Insert dans la table salle 
+prompt Insert dans la table salle : autorisé 
 INSERT INTO admin21.salle  VALUES('salle3', 900);
 SELECT * FROM admin21.salle;
 
 prompt
-prompt Update dans la table salle 
+prompt Update dans la table salle : autorisé 
 UPDATE admin21.salle SET capacity = 1000 WHERE id_salle = 'salle3';
 SELECT * FROM admin21.salle WHERE id_salle = 'salle3';
 
 prompt
-prompt Delete dans la table salle
+prompt Delete dans la table salle : autorisé
 DELETE FROM admin21.salle WHERE id_salle='salle3';
 SELECT * FROM admin21.salle;
 

@@ -20,12 +20,12 @@ INSERT INTO admin21.spectateur VALUES ('USER9', 'Joyeux', 'Albet', 65,'3 rue du 
 
 prompt
 prompt Delete dans la table spectateur : Impossible
-DELETE FROM admin21.spectateur WHERE id_spectateur=1;
+DELETE FROM admin21.spectateur WHERE id_spectateur='USER9';
 
 /** TEST SUR LA TABLE CONCERT **/
 prompt
 prompt ** TEST SUR LA TABLE CONCERT **
-prompt Select dans la table concert : retourne les concerts confirmé
+prompt Select dans la table concert : retourne les concerts confirmés et dans de moins de 1 an
 SELECT * FROM admin21.concert;
 
 prompt 
