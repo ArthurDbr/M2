@@ -3,6 +3,9 @@
 -- Lancement du script drop pour effacer toute les données de la base
 @drop
 
+SET LINE 250;
+SET LINESIZE 250;
+
 -- Initialisation des différentes tables
 CREATE TABLE spectateur
 (
@@ -39,6 +42,7 @@ INSERT INTO concert VALUES ('conc1', 'salle1', 'Woodkid', 1, TO_DATE('2020-12-20
 INSERT INTO concert VALUES ('conc2', 'salle2', 'Shaka Ponk', 1, TO_DATE('2021-01-01', 'YYYY-MM-DD'));
 INSERT INTO concert VALUES ('conc3', 'salle1', 'Elephanz', 1, TO_DATE('2021-05-01', 'YYYY-MM-DD'));
 INSERT INTO concert VALUES ('conc4', 'salle2', 'Radio Moscow', 0, TO_DATE('2023-01-01', 'YYYY-MM-DD'));
+INSERT INTO concert VALUES ('conc5', 'salle1', 'Moby', 1, TO_DATE('2022-05-01', 'YYYY-MM-DD'));
 
 INSERT INTO salle VALUES ('salle1', 2000);
 INSERT INTO salle VALUES ('salle2', 500);
@@ -89,7 +93,9 @@ GRANT EXECUTE ON ADMIN21.set_concert_context_package TO user1, user2, user3, use
 @only_incoming_concert_policy
 @spectateur_self_select_policy
 
-
+SELECT * FROM admin21.concert;
+SELECT * FROM admin21.salle;
+SELECT * FROM admin21.spectateur;
 
 COMMIT;
 

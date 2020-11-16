@@ -19,6 +19,11 @@ prompt Insert dans la table spectateur : Impossible
 INSERT INTO admin21.spectateur VALUES ('USER9', 'Joyeux', 'Albet', 65,'3 rue du chateau');
 
 prompt
+prompt Update dans la table spectateur : autorisé
+UPDATE admin21.spectateur SET adress = '2 rue du bateau' WHERE id_spectateur = 'USER8';
+SELECT * FROM admin21.spectateur;
+
+prompt
 prompt Delete dans la table spectateur : Impossible
 DELETE FROM admin21.spectateur WHERE id_spectateur='USER9';
 
@@ -30,17 +35,17 @@ SELECT * FROM admin21.concert;
 
 prompt 
 prompt Insert dans la table concert : autorisé
-INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, TO_DATE('2021-02-15', 'YYYY-MM-DD'));
+INSERT INTO admin21.concert VALUES('conc6', 'salle2', 'Linkin Park', 0, TO_DATE('2021-02-15', 'YYYY-MM-DD'));
 SELECT id_salle, artist, confirmed FROM admin21.concert;
 
 prompt
 prompt Update dans la table concert : autorisé
-UPDATE admin21.concert SET confirmed = 1 WHERE id_concert = 'conc5';
-SELECT id_salle, artist, confirmed FROM admin21.concert WHERE id_concert = 'conc5';
+UPDATE admin21.concert SET confirmed = 1 WHERE id_concert = 'conc6';
+SELECT id_salle, artist, confirmed FROM admin21.concert WHERE id_concert = 'conc6';
 
 prompt
 prompt Delete dans la table concert : autorisé
-DELETE FROM admin21.concert WHERE id_concert='conc5';
+DELETE FROM admin21.concert WHERE id_concert='conc6';
 SELECT id_concert, artist FROM admin21.concert;
 
 /** TEST SUR LA TABLE SALLE **/

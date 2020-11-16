@@ -19,6 +19,10 @@ prompt Insert dans la table spectateur : Impossible
 INSERT INTO admin21.spectateur VALUES ('USER9', 'Joyeux', 'Albet', 65,'3 rue du chateau');
 
 prompt
+prompt Update dans la table spectateur : Impossible
+UPDATE admin21.spectateur SET adress = '77 rue du village' WHERE id_spectateur = 'USER4';
+
+prompt
 prompt Delete dans la table spectateur : Impossible
 DELETE FROM admin21.spectateur WHERE id_spectateur='USER9';
 

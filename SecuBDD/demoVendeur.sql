@@ -17,14 +17,17 @@ SELECT * FROM admin21.spectateur;
 prompt
 prompt Insert dans la table spectateur : autorisé 
 INSERT INTO admin21.spectateur VALUES ('USER8', 'Mousse', 'Jean', 36,'1 rue du chapiteau');
+SELECT * FROM admin21.spectateur;
 
 prompt
 prompt Update dans la table spectateur : autorisé
-UPDATE admin21.spectateur SET adress = '2 rue du beteau' WHERE id_spectateur = 'USER8');
+UPDATE admin21.spectateur SET adress = '2 rue du bateau' WHERE id_spectateur = 'USER8';
+SELECT * FROM admin21.spectateur;
 
 prompt
 prompt Delete dans la table spectateur : autorisé
 DELETE FROM admin21.spectateur WHERE id_spectateur='USER8';
+SELECT * FROM admin21.spectateur;
 
 /** TEST SUR LA TABLE CONCERT **/
 prompt
@@ -39,7 +42,6 @@ INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, TO_DATE(
 prompt
 prompt Update dans la table concert : Impossible
 UPDATE admin21.concert SET confirmed = 1 WHERE id_concert = 'conc5';
-SELECT * FROM admin21.concert WHERE id_concert = 'conc5';
 
 prompt
 prompt Delete dans la table concert : Impossible

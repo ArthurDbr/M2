@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION only_incoming_concert (
   IS 
   return_val VARCHAR2 (300);
   BEGIN
-    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' THEN
+    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' THEN
       return_val := 'date_concert < add_months(sysdate,12)';
     END IF;
   RETURN return_val;
