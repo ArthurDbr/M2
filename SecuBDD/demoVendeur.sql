@@ -54,17 +54,17 @@ SELECT * FROM admin21.salle;
 prompt 
 prompt Insert dans la table salle : Impossible
 INSERT INTO admin21.salle  VALUES('salle3', 900);
-SELECT * FROM admin21.salle;
+
 
 prompt
 prompt Update dans la table salle : Impossible
 UPDATE admin21.salle SET capacity = 1000 WHERE id_salle = 'salle3';
-SELECT * FROM admin21.salle WHERE id_salle = 'salle3';
+
 
 prompt
 prompt Delete dans la table salle : Impossible
 DELETE FROM admin21.salle WHERE id_salle='salle3';
-SELECT * FROM admin21.salle;
+
 
 COMMIT;
 

@@ -35,7 +35,7 @@ INSERT INTO admin21.concert VALUES('conc5', 'salle2', 'Linkin Park', 0, TO_DATE(
 prompt
 prompt Update dans la table concert : Impossible
 UPDATE admin21.concert SET confirmed = 1 WHERE id_concert = 'conc5';
-SELECT * FROM admin21.concert WHERE id_concert = 'conc5';
+
 
 prompt
 prompt Delete dans la table concert : Impossible
@@ -50,17 +50,17 @@ SELECT * FROM admin21.salle;
 prompt 
 prompt Insert dans la table salle : Impossible
 INSERT INTO admin21.salle  VALUES('salle3', 900);
-SELECT * FROM admin21.salle;
+
 
 prompt
 prompt Update dans la table salle : Impossible
 UPDATE admin21.salle SET capacity = 1000 WHERE id_salle = 'salle3';
-SELECT * FROM admin21.salle WHERE id_salle = 'salle3';
+
 
 prompt
 prompt Delete dans la table salle : Impossible
 DELETE FROM admin21.salle WHERE id_salle='salle3';
-SELECT * FROM admin21.salle;
+
 
 COMMIT;
 
