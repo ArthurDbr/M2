@@ -1,5 +1,5 @@
 -- Arthur DEBAR & Alexis PETIT M2 MIAGE
-
+-- Retourne uniquement les concerts confirmés
 CREATE OR REPLACE FUNCTION only_confirmed_concert(
   schema_var IN VARCHAR2,
   table_var IN VARCHAR2)

@@ -1,5 +1,5 @@
 -- Arthur DEBAR & Alexis PETIT M2 MIAGE
-
+-- Retourne uniquement les concerts à moins de 1 an
 CREATE OR REPLACE FUNCTION only_incoming_concert (
   schema_var IN VARCHAR2,
   table_var IN VARCHAR2)
@@ -7,7 +7,10 @@ CREATE OR REPLACE FUNCTION only_incoming_concert (
   IS 
   return_val VARCHAR2 (300);
   BEGIN
-    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' THEN
+    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' 
+    OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' THEN
+    -- la formule add_mouths(sysdate,12) ajoute 12 mois à la date actuel 
+    -- pour obtenir les concerts se déroulant dans moins d'1 an
       return_val := 'date_concert < add_months(sysdate,12)';
     END IF;
   RETURN return_val;

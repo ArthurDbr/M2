@@ -13,7 +13,7 @@ CREATE TABLE spectateur
     last_name VARCHAR(32),
     first_name VARCHAR(32),
     age INTEGER,
-    adress VARCHAR(64),
+    adress VARCHAR(50),
     CONSTRAINT spectateur_pk PRIMARY KEY(id_spectateur)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE concert
 (
     id_concert VARCHAR(32),
     id_salle VARCHAR(32),
-    artist VARCHAR(64),
+    artist VARCHAR(50),
     confirmed INTEGER,
     date_concert DATE,
     CONSTRAINT concert_pk PRIMARY KEY (id_concert)
@@ -35,6 +35,7 @@ CREATE TABLE salle
 );
 
 -- Ajout des données dans nos tables
+INSERT INTO spectateur VALUES ('USER4', 'Grand', 'Julie', 28, '5 rue de la poste');
 INSERT INTO spectateur VALUES ('USER5', 'Boular', 'Pascal', 26, '2 rue du billard');
 INSERT INTO spectateur VALUES ('USER6', 'Bon', 'Jean', 35, '87 avenue de la plage');
 
@@ -80,10 +81,11 @@ GRANT SELECT ON limited_spectateur TO admin21_directeur;
 GRANT admin21_directeur TO user1;
 GRANT admin21_vendeur_tickets TO user2;
 GRANT admin21_vendeur_tickets TO user3;
+GRANT admin21_spectateur TO user4;
 GRANT admin21_spectateur TO user5;
 GRANT admin21_spectateur TO user6;
 GRANT admin21_invite TO user7;
-GRANT admin21_invite TO user4;
+
 
 @context
 
