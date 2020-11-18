@@ -7,7 +7,9 @@ CREATE OR REPLACE FUNCTION only_confirmed_concert(
   IS 
   return_val VARCHAR2 (300);
   BEGIN
-    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_VENDEUR_TICKETS' OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' THEN
+    IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' 
+    OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_VENDEUR_TICKETS' 
+    OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' THEN
       return_val := 'confirmed=1';
     END IF;
   RETURN return_val;

@@ -3,6 +3,7 @@
 -- Lancement du script drop pour effacer toute les données de la base
 @drop
 
+-- Paramètres d'affichage de la console SQLPlus
 SET LINE 250;
 SET LINESIZE 250;
 
@@ -86,7 +87,7 @@ GRANT admin21_spectateur TO user5;
 GRANT admin21_spectateur TO user6;
 GRANT admin21_invite TO user7;
 
-
+-- Création du package concert
 @context
 
 GRANT EXECUTE ON ADMIN21.set_concert_context_package TO user1, user2, user3, user4, user5, user6, user7;

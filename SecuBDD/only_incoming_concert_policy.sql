@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION only_incoming_concert (
   BEGIN
     IF SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_SPECTATEUR' 
     OR SYS_CONTEXT('concert_context', 'role') = 'ADMIN21_INVITE' THEN
-    -- la formule add_mouths(sysdate,12) ajoute 12 mois à la date actuel 
+    -- la formule add_months(sysdate,12) ajoute 12 mois à la date actuelle
     -- pour obtenir les concerts se déroulant dans moins d'1 an
       return_val := 'date_concert < add_months(sysdate,12)';
     END IF;
